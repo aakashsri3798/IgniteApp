@@ -1,0 +1,182 @@
+Chapter 02 - Assignment - Igniting our App 
+
+
+Please Note:  Write the answers and code on your own while finishing your assignments.
+Try to  put down your thoughts into words by yourself in your own words. (This will help you develop  muscle memory and you will remember
+all the concepts properly) 
+
+
+Theory Assignment: 
+
+
+●	- What is `NPM`? 
+●	- What is `Parcel/Webpack`? Why do we need it? ●   - What is `.parcel-cache`  ●  - What is `npx` ? 
+●	- What is difference between `dependencies` vs `devDependencies`  ●  - What is Tree Shaking? 
+●	- What is Hot Module Replacement? 
+●	- List down your favourite 5 superpowers of Parcel and describe any 3 of them in your  own words. 
+●	- What is `.gitignore`? What should we add and not add into it? 
+●	- What is the difference between `package.json` and `package-lock.json`  ●  - Why should I not modify `package-lock.json`? 
+●	- What is `node_modules` ? Is it a good idea to push that on git? 
+●	- What is the `dist` folder? 
+●	- What is `browserlists 
+
+Read about dif bundlers: vite, webpack, parcel 
+
+
+●	Read about:  ^ - caret and ~ - tilda 
+●	Read about Script types in html (MDN Docs) 
+
+
+Project Assignment: 
+
+In your existing project 
+
+●	 intialize `npm` into your repo 
+●	 install `react` and `react-dom` 
+●	 remove CDN links of react 
+●	 install parcel 
+●	 ignite your app with parcel 
+●	 add scripts for “start” and “build” with parcel commands 
+●	 add `.gitignore` file 
+●	 add `browserlists` 
+●	 build a production version of your code using `parcel build
+
+References 
+
+●	Creating your own create-react-app 
+●	Parcel Documentation 
+●	Parcel on Production 
+●	BrowsersList:  https://browserslist.dev/
+
+What is `NPM`? 
+React is very fast not only on its own but also due to a lot of other things. React does not run production 
+ready code just by itself  , we also need some superpowersthat comes from different packages  and we need a
+package manager to manage all those packages . And tat is done by npm.
+
+
+What is `Parcel/Webpack`? Why do we need it? ●   - What is `.parcel-cache`  ●  - What is `npx` ?
+
+Parcel is a  bundler.When we make our production ready code it bundles thnig up ,
+for example when we make a producion ready code all our files are bundled up in the dist folder.
+We need parcel for these reasons 
+
+
+To ignite the app            ->  when we ignite our app then parcel handles almost everything behind the scenes and gives us a server.
+
+HMR (Hot module replacement) ->  If we ignite our app using parcel and save somthing then it is automatically reflected on to the web 
+browser and we do not need to refresh the page . this is known as hot module  replacement. parcel gets to know something is changed 
+in the code by using an algorithm known as File Watcher ALgorithm (It is written in c++)
+
+Bundling 
+Minifying
+Clean our code
+Manages development and production build
+Image optimization
+Compression
+Allows us to work on https
+Manages port
+PARCEL IS A BEAST
+
+Parcel does many tasks and for doing these tasks parcel needs space and this space is known as parcel cache
+
+npx means
+The npx stands for Node Package Execute and it comes with the npm, when you installed
+npm above 5.2.0 version then automatically npx will installed. It is an npm package 
+runner that can execute any package that you want from the npm registry without eveninstalling that package.
+
+What is difference between `dependencies` vs `devDependencies`  ●  - What is Tree Shaking? 
+
+In package.json file, there is an object called dependencies and it consists of all the
+packages that are used in the project with its version number. So, whenever you install any 
+library that is required in your project that library you can find it in the dependencies object. 
+
+Dependencies can be added to your project by running :
+
+npm install <package_name>
+
+In package.json file, there is an object called as dev Dependencies and it consists of all the 
+packages that are used in the project in its development phase and not in the production or 
+testing environment with its version number. So, whenever you want to install any library that
+is required only in your development phase then you can find it in the dev Dependencies object. 
+
+Use the below command to add more dev Dependencies in your project:
+
+npm install <package name> --save-dev
+
+What is Hot Module Replacement? 
+If we ignite our app using parcel and save somthing then it is automatically reflected on to the web 
+browser and we do not need to refresh the page . this is known as hot module  replacement. parcel gets to know something is changed 
+in the code by using an algorithm known as File Watcher ALgorithm (It is written in c++)
+
+List down your favourite 5 superpowers of Parcel and describe any 3 of them in your  own words. 
+
+HMR (Hot module replacement)
+Clean our code
+Bundling 
+Minifying
+Image optimization
+
+HMR(Hot Module Replacement) ->   If we ignite our app using parcel and save somthing then it is automatically reflected on to the web 
+browser and we do not need to refresh the page . this is known as hot module  replacement. parcel gets to know something is changed 
+in the code by using an algorithm known as File Watcher ALgorithm (It is written in c++)
+
+Minification ->                   Parcel includes minifiers for JavaScript, CSS, HTML, and SVG out of the box. 
+Minification reduces the file size of your output bundles by removing whitespace, renaming variables to shorter
+names, and many other optimizations.
+By default, minification is enabled when using the parcel build command. You can use the --no-optimize CLI flag to
+disable minification and other optimizations if needed.
+
+Parcel uses terser to minify JavaScript, lightningcss for CSS, htmlnano for HTML, and svgo for SVG. 
+If needed, you can configure these tools using a .terserrc, .htmlnanorc, or svgo.config.json config file. 
+See the docs for JavaScript, CSS, HTML, and SVG for more details.
+
+Image optimization ->            Parcel supports resizing, converting, and optimizing images. You can use query
+parameters when referencing an image in HTML, CSS, or JavaScript to specify which format and size the image 
+should be converted to. You can request multiple sizes or formats from the same source image, which helps support
+different types of devices or browsers efficiently.
+
+<picture>
+  <source type="image/webp" srcset="image.jpg?as=webp&width=400, image.jpg?as=webp&width=800 2x">
+  <source type="image/jpeg" srcset="image.jpg?width=400, image.jpg?width=800 2x">
+  <img src="image.jpg?width=400" width="400">
+</picture>
+
+Resizing and converting images occurs both in development and production mode, so you can test with the correct 
+image dimensions and formats as well. See the Image transformer docs for more details.
+
+Parcel also includes lossless image optimization for JPEGs and PNGs by default in production mode, which reduces 
+the size of images without affecting their quality. This does not require any query parameters or configuration to
+use. However, since the optimization is lossless, the size reduction possible may be less than if you use the 
+quality query param, or use a modern format such as WebP or AVIF.
+
+What is `.gitignore`? What should we add and not add into it? 
+gitignore file is a text file that tells Git which files or folders to ignore in a project
+
+Anything which can be autogenerated on our server should be put inside our .gitignore 
+for example files like -> node_modules , dist , parcel-cache and many more should be put in .gitignore 
+
+What is the difference between `package.json` and `package-lock.json`  ●  - Why should I not modify `package-lock.json`? 
+lock. json is created to have the same results in every environment. It should be in source control with the package.json 
+file because if any other user will clone the project and install dependencies then it will install the exact same  dependenciesas in package.
+
+What is `node_modules` ? Is it a good idea to push that on git? 
+The node_modules folder is a folder that is created when you install packages using the Node Package Manager (npm). It stores the packages and their dependencies that your project requires.
+
+In Git, the node_modules folder is typically included in the .gitignore file, a configuration file that tells Git which files and directories to ignore when committing changes to a repository. This is done because the node_modules folder can be very large, and tracking changes to the packages and dependencies in your Git repository is usually unnecessary.
+
+If you want to include the node_modules folder in your Git repository, you can remove it from the .gitignore file. However, 
+this is generally not recommended, as it can lead to large repository sizes and slower performance. Instead, it is typically better to
+track your project's dependencies using a package.json file, which lists the packages and their versions that your project requires. 
+This allows you to recreate the node_modules folder and install the requiredpackages by running npm install whenever you clone or update
+your repository.
+
+What is the `dist` folder?
+Whenever we make a production build of our project parcel bundles up the files and stores them in the dist folder.
+
+What is `browserlists 
+Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file
+
+
+
+
+
